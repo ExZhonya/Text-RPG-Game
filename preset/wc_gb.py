@@ -50,7 +50,7 @@ def welc_text():
 
 def bye_asc():
 	u.clear()
-	u.v_fast_print(r"""
+	print(r"""
         ,----,                                                              
       ,/   .`|       ,--,                        ,--.       ,--.            
     ,`   .'  :     ,--.'|   ,---,              ,--.'|   ,--/  /| .--.--.    
