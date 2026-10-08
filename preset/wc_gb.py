@@ -20,7 +20,7 @@ def welc_asc():
 def _options(width):
 	u.v_fast_print(f"{'Please Choose One of The Options.':^{width}}")
 	u.v_fast_print(f"{'1. START':^{width}}")
-	u.v_fast_print(f"{'2. LOAD':^{width}}")
+	u.v_fast_print(f"{'2. LOAD ':^{width}}")
 	u.v_fast_print(f"{'3. QUIT ':^{width}}")
 
 def welc_text():
