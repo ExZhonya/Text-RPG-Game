@@ -5,3 +5,6 @@ How to PLay:
 2. Go Rest to go to another day
 3. NPC will unlock as days passes on
 4. Keep surviving the night
+
+# V0.0.1A
+This is only for a test
