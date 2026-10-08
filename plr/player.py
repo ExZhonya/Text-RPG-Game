@@ -7,6 +7,7 @@ class Player:
 		"fuel": int,
 		"food": int,
 		"health": int,
+		"max_health": int,
 		"money": int,
 		"trader": bool,
 		"hunter": bool,
@@ -24,7 +25,8 @@ class Player:
 		self.day = 1
 		self.fuel = 0
 		self.food = 0
-		self.health = self.MAX_HEALTH
+		self.max_health = self.MAX_HEALTH
+		self.health = self.max_health
 		self.money = 30
 		self.trader = False
 		self.hunter = False
@@ -36,7 +38,7 @@ class Player:
 	
 	def change_health(self, amount):
 		original = self.health
-		self.health = max(0, min(self.health, original + amount))
+		self.health = max(0, min(self.max_health, original + amount))
 		return self.health - original
 
 	def is_alive(self):
@@ -48,6 +50,7 @@ class Player:
 			"fuel": self.fuel,
 			"food": self.food,
 			"health": self.health,
+			"max_health": self.max_health,
 			"money": self.money,
 			"trader": self.trader,
 			"hunter": self.hunter,
@@ -80,6 +83,7 @@ class Player:
 		self.reset()
 		for key, value in new.items():
 			setattr(self, key, value)
+		self.health = max(0, min(self.health, self.max_health))
 
 
 player = Player()

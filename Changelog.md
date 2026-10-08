@@ -12,3 +12,8 @@ How to PLay:
 # V0.0.2-unstable_v2
 - Some minor improvement for the texts
 - Change `map_.py` to `game.py` to avoid confusion
+
+# V0.0.2
+- Stable Version
+- Fixed some bugs
+- Working save systems

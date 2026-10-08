@@ -1,4 +1,3 @@
-import random
 from preset import utils as u
 from preset import npc_dia as n
 from preset import balance as b
@@ -101,7 +100,7 @@ class Base:
 	@staticmethod
 	def chop_wood():
 		u.clear()
-		gained = random.randint(1, 3)
+		gained = b.gather_amount(player.day)
 		player.fuel += gained
 		u.fast_print(f"You gain {gained} fuel.")
 		u.getch()
@@ -109,7 +108,7 @@ class Base:
 	@staticmethod
 	def find_food():
 		u.clear()
-		gained = random.randint(1, 3)
+		gained = b.gather_amount(player.day)
 		player.food += gained
 		u.fast_print(f"You gain {gained} food.")
 		u.getch()
@@ -117,7 +116,7 @@ class Base:
 	@staticmethod
 	def explore():
 		u.clear()
-		gained = random.randint(1, 3)
+		gained = b.gather_amount(player.day)
 		player.money += gained
 		u.fast_print(f"You gained {gained} money.")
 		u.getch()

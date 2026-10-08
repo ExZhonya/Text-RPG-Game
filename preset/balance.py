@@ -8,8 +8,8 @@ HEALTH_UPG = 10
 HEALTH_CAP = 300
 
 def _tier(day):
-    return (min(day, CAP_DAY) - 1) //5
-    # increase by 1 everry 5 days, caps at 50 which is tier 9
+    return (min(day, CAP_DAY) - 1) // 3
+    # increase by 1 everry 3 days, caps at 50 which is tier 9
 
 # ---- gathering and money obtained amoun t ----
 def gather_amount(day):
