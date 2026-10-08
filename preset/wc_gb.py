@@ -41,7 +41,7 @@ def welc_text():
 		elif x == "2":
 			if saves.slot_menu("load"):
 				return True
-			welc_asc()          # backed out of the menu -> redraw the title screen
+			welc_asc()
 			_options(width)
 		elif x == "3":
 			return False

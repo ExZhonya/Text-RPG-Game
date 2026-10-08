@@ -62,7 +62,7 @@ def load_game(slot):
 		payload = _read(slot)
 		if payload.get("version", 1) > SAVE_VERSION:
 			return False, "That save is from a newer version of the game."
-		# (when SAVE_VERSION goes up, convert old saves here before loading)
+		# when SAVE_VERSION goes up, convert old saves here before loading
 		player.load_dict(payload["player"])
 	except (OSError, ValueError):
 		return False, "That save file is corrupted."
