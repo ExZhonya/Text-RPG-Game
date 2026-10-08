@@ -54,20 +54,6 @@ def load_game(slot):
 		return False, "Error! That save file is corrupted."
 	return True, f"Loaded slot {slot}"
 
-def load_game(slot):
-	"""Returns (ok, message)."""
-	if not _path(slot).exists():
-		return False, "That slot is empty."
-	try:
-		payload = _read(slot)
-		if payload.get("version", 1) > SAVE_VERSION:
-			return False, "That save is from a newer version of the game."
-		# when SAVE_VERSION goes up, convert old saves here before loading
-		player.load_dict(payload["player"])
-	except (OSError, ValueError):
-		return False, "That save file is corrupted."
-	return True, f"Loaded slot {slot}."
-
 def slot_menu(mode):
 	msg = ""
 	valid = [str(i) for i in range(1, SLOTS + 1)]
