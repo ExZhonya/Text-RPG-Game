@@ -6,5 +6,9 @@ How to PLay:
 3. NPC will unlock as days passes on
 4. Keep surviving the night
 
-# V0.0.2
+# V0.0.2-unstable_v1
 - Added Save / Load System. Can be accessed via title screen or game menu
+
+# V0.0.2-unstable_v2
+- Some minor improvement for the texts
+- Change `map_.py` to `game.py` to avoid confusion
