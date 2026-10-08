@@ -2,6 +2,7 @@ import random
 from preset import utils as u
 from preset import npc_dia as n
 from preset import balance as b
+from preset import saves
 from plr.player import player
 
 UNLOCKS = {
@@ -43,8 +44,9 @@ class Base:
 		2. Find Food
 		3. Explore
 		4. Rest (End the day.)
-		9. NPC
-		0. Quit(No Save!)
+		5. NPC
+		9. Save/Load Menu
+		0. Quit (unsaved progress is lost!)
 		""")
 		x = u.getch()
 		if x == "1":
@@ -55,11 +57,31 @@ class Base:
 			Base.explore()
 		elif x =="4":
 			Base.rest()
-		elif x == "9":
+		elif x == "5":
 			Base.NPC()
+		elif x == "9":
+			Base.save_menu()
 		elif x == "0":
 			return False
 		return player.health > 0
+
+	@staticmethod
+	def save_menu():
+		while True:
+			u.clear()
+			print("""
+
+	1. Save Game
+	2. Load Game
+	0. Go Back
+""")
+			x = u.getch()
+			if x == "1":
+				saves.slot_menu("save")
+			elif x == "2":
+				saves.slot_menu("load")
+			elif x == "0":
+				return
 
 	@staticmethod
 	def rest():

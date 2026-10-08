@@ -6,5 +6,5 @@ How to PLay:
 3. NPC will unlock as days passes on
 4. Keep surviving the night
 
-# V0.0.1A
-This is only for a test
+# V0.0.2
+- Added Save / Load System. Can be accessed via title screen or game menu

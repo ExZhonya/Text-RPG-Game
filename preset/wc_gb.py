@@ -1,10 +1,11 @@
 import shutil
 from preset import cutscenes as cs
 from preset import utils as u
+from preset import saves
 
 def welc_asc():
 	u.clear()
-	u.v_fast_print(r"""
+	print(r"""
 			,-.-.     ,----.              _,.----.     _,.---._           ___      ,----.  
 	,-..-.-./  \==\ ,-.--` , \   _.-.    .' .' -   \  ,-.' , -  `.  .-._ .'=.'\  ,-.--` , \ 
 	|, \=/\=|- |==||==|-  _.-` .-,.'|   /==/  ,  ,-' /==/_,  ,  - \/==/ \|==|  ||==|-  _.-` 
@@ -16,23 +17,33 @@ def welc_asc():
 	`--`  `--`  `--`-----`` `--`-----'                `--`--''   `--`./  `--``--`-----``  
 """)
 
+def _options(width):
+	u.v_fast_print(f"{'Please Choose One of The Options.':^{width}}")
+	u.v_fast_print(f"{'1. START':^{width}}")
+	u.v_fast_print(f"{'2. LOAD':^{width}}")
+	u.v_fast_print(f"{'3. QUIT ':^{width}}")
+
 def welc_text():
 	width = shutil.get_terminal_size().columns
 
-	u.slow_print(f"{'Welcome to the amazing digital world!':^{width}}")
-	u.slow_print(f"{'You will live as a stranded person in a camp alone... for now!':^{width}}")
-	u.slow_print("")
-	u.v_fast_print(f"{'Please Choose One of The Options.':^{width}}")
-	u.v_fast_print(f"{'1. START':^{width}}")
-	u.v_fast_print(f"{'2. QUIT ':^{width}}")
+	u.fast_print(f"{'Welcome to the amazing digital world!':^{width}}")
+	u.fast_print(f"{'You will live as a stranded person in a camp alone... for now!':^{width}}")
+	u.fast_print("")
+	_options(width)
 
-	x = u.getch()
+	while True:
+		x = u.getch()
 
-	if x == "1":
-		cs.start()
-		return True
-	elif x == "2":
-		return False
+		if x == "1":
+			cs.start()
+			return True
+		elif x == "2":
+			if saves.slot_menu("load"):
+				return True
+			welc_asc()          # backed out of the menu -> redraw the title screen
+			_options(width)
+		elif x == "3":
+			return False
 
 
 
