@@ -1,5 +1,5 @@
 import preset.wc_gb as wc
-from map_ import Base
+from game import Base
 
 def main():
 	wc.welc_asc()
